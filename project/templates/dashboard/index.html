@@ -1,0 +1,94 @@
+{% extends '/partials/base.html' %} 
+{% block link %} 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:ital,wght@0,400;1,700&display=swap"
+    rel="stylesheet">
+
+{% endblock %}
+{% block title %} Todo-Home {% endblock %}
+{% block content %}
+<div class="container">
+<div class="row">
+<div class="grid text-center mb-2">
+    <div class="g-col-6">
+        <div class="card shadow">
+            <div class="card-header">Stats</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                        <div class="card-body">
+                            <h6>Total</h6>
+                            <p>{{total_todo}}</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Completed</h6>
+                            <p> {{cmlt_cnt}} </p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>UnCompleted</h6>
+                                <p> {{uncmlt_cnt}} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="g-col-6">
+        <div class="card">
+            <div class="card-header">Todo Form</div>
+            <div class="shadow card-body">
+                <form action="/add" method="post">
+                    <label for="title">Title</label>
+                    <input
+                        class="form-control" 
+                        type="text" 
+                        name="title" 
+                        id="title" 
+                        placeholder="Add TODO">
+                    <input 
+                        class="btn btn-outline-primary mt-2 bt-sm" 
+                        type="submit"
+                        value="Add">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% if total_todo == 0  %}
+    <marquee 
+    class="mt-3"
+    behavior="" 
+    direction="">
+    there's nothing to show, Add new Item to TODO 
+    </marquee> 
+{% else %}
+    {% for todo in todo_list %}
+        <div class="card shadow c-m">
+            <div class="card-body card-color shadow">
+                <h5> {{ todo.id }} | {{ todo.title  }}</h5>
+                {% if todo.complete %}
+            <span class="badge text-bg-success">Complete</span>
+            {% else %}
+            <span class="badge text-bg-secondary">uncomplete</span>
+            {% endif %}
+                <a href="/update/{{ todo.id }}" class="btn btn-outline-light btn-sm">update</a>
+                <a href="/delete/{{ todo.id }}" class="btn btn-outline-danger btn-sm" >delete</a>
+            </div>
+        </div>
+    {% endfor %}
+    {% endif %}
+{%endblock%}
+</div>

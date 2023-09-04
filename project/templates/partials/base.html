@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% block link %} {% endblock %}
+    <link
+      rel="stylesheet"
+      href="{{url_for ('static',filename= 'css/home.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/all.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/bootstrap.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename= 'css/main.css') }}"
+    />
+    <title>{% block title%} {% endblock %}</title>
+  </head>
+  <body>
+    {% include "partials/nav.html" %}
+    <br />
+    {% block content %} {% endblock %}
+  </body>
+</html>

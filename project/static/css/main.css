@@ -1,0 +1,54 @@
+body {
+background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    color: #053B50;
+}
+.card-color {
+    border: 2px solid #f3f3f3;
+    background-color: #F6F4EB;
+}
+.c-m {
+    margin-bottom: 1rem;
+}
+.form-control {
+    padding: 5px;
+    font-size: 16px;
+}
+nav {
+    background-color: #E8F9FD;
+}
+.logo {
+    font-family: 'Dancing Script', cursive;
+        font-family: 'Roboto', sans-serif;
+}
+.card {
+    height: 100%;
+    border-radius: 10%;
+}
+.card h5 {
+    color: #F6F4EB;
+}
+.grid {
+    display: grid;
+    grid-template-rows: repeat(var(--bs-rows, 1), 1fr);
+    grid-template-columns: repeat(var(--bs-columns, 12), 1fr);
+    gap: var(--bs-gap, 1.5rem);
+}
+
+.grid .g-col-6 {
+    grid-column: auto/span 6;
+}
+
+.grid .g-col-4 {
+    grid-column: auto/span 4;
+}
+
+.grid .g-col-8 {
+    grid-column: auto/span 8;
+}
+.card-header {
+    background-color: #9CB4CC;
+    color:#EEEEEE;
+}
+.card > .card-header ~ .card-body {
+    background-color: #EEEEEE;
+}
